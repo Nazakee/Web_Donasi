@@ -26,7 +26,6 @@
     }
 
     header .logo {
-      /* Hanya untuk logo (lingkaran) */
       width: 50px;
       height: 50px;
       margin-right: 20px; 
@@ -35,18 +34,16 @@
       justify-content: center;
     }
 
-    /* Style untuk gambar logo di dalam div .logo */
     header .logo img {
       width: 100%;
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      /* Hapus margin-right: 8px yang ada di HTML inline */
     }
 
     header .search-bar {
-      flex-grow: 1; /* Search bar mengambil semua ruang yang tersisa */
-      margin: 0 20px; /* Jarak dari logo dan nav links */
+      flex-grow: 1; 
+      margin: 0 20px; 
       max-width: 600px;
     }
 
@@ -55,7 +52,7 @@
       padding: 10px 20px;
       border-radius: 20px;
       border: 1px solid #ccc;
-      background: #eaf1ff; /* Warna latar belakang seperti di gambar */
+      background: #eaf1ff; 
       outline: none;
       font-size: 16px;
     }
@@ -70,7 +67,7 @@
       color: #111;
       text-decoration: none;
       font-weight: 500;
-      padding: 6px 12px; /* Diberi padding sedikit agar hover terlihat rapi */
+      padding: 6px 12px; 
       border-radius: 20px;
       transition: color 0.2s, background 0.2s;
     }
@@ -80,42 +77,57 @@
       background: #f0f0f0;
     }
 
-    /* Style khusus untuk tombol Galang Dana (Sesuai gaya formulir) */
     header nav a.galang-dana {
-      background: #020075; /* Warna biru gelap */
+      background: #020075; 
       color: white;
       font-weight: bold;
-      padding: 8px 18px; /* Padding lebih besar */
-      margin-left: 30px; /* Jarak lebih jauh dari link "Masuk" */
+      padding: 8px 18px; 
+      margin-left: 30px; 
     }
 
     header nav a.galang-dana:hover {
-      background: #0019cc; /* Efek hover biru sedikit lebih terang */
+      background: #0019cc; 
       color: white;
     }
 
-    /* Style khusus buat Galang Dana (Dipertahankan) */
     header nav a.galang-dana {
-      background: #020075; /* Warna background dari btn-primary galang dana */
+      background: #020075; 
       color: white;
       font-weight: bold;
-      padding: 8px 18px; /* Padding disesuaikan */
+      padding: 8px 18px; 
       border-radius: 20px;
       margin-left: 20px;
     }
     header nav a.galang-dana:hover {
-      background: #0019cc; /* Efek hover dari btn-primary galang dana */
-      color: white; /* Pertahankan warna teks putih */
+      background: #0019cc; 
+      color: white; 
     }
 
     /* Breadcrumb */
-    .breadcrumb {
-      font-size: 14px;
-      margin: 20px 40px;
-      color: #333;
+    .breadcrumb-link {
+      text-decoration: none; 
+      color: #0b0342; 
+      font-weight: 500;
+      transition: color 0.2s;
     }
-    .breadcrumb span {
-      color: #777;
+
+    .breadcrumb-link:hover {
+      color: #1a4cff; 
+      text-decoration: underline; 
+    }
+
+    .separator {
+      margin: 0 5px; 
+      color: #ccc;
+      user-select: none; 
+    }
+
+
+    .breadcrumb { 
+      max-width: 1200px;
+      margin: 20px auto 30px; 
+      padding: 0 40px; 
+      font-size: 14px;
     }
 
     /* Grid Donasi */
@@ -168,7 +180,7 @@
     .progress {
       background: #072b51;
       height: 8px;
-      width: 60%; /* progress contoh */
+      width: 60%; 
     }
     .donasi-btn {
       background-color: #000435;
@@ -180,7 +192,7 @@
       border-radius: 5px;
       font-size: 14px;
       cursor: pointer;
-      display: block; /* penting kalau pakai <a> */
+      display: block; 
     }
 
     .donasi-btn:hover {
@@ -207,7 +219,10 @@
 
   <!-- Breadcrumb -->
   <div class="breadcrumb">
-    Beranda > <span>Donasi</span>
+    <a href="beranda web donasi.html" class="breadcrumb-link">Beranda</a>
+    <span class="separator"> > </span>
+    <a href="halaman donasi.html" class="breadcrumb-link">Donasi</a>
+    <span class="separator"> </span>
   </div>
 
   <!-- List Donasi -->
