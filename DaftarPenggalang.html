@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galang Dana - DanaPeduli</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #222;
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      background: #eaf1ff;
+      outline: none;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #1a4cff;
+    }
+
+    .btn-primary {
+      background: #020075;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #0019cc;
+    }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      width: 90%;
+      margin: 20px auto;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .breadcrumb a {
+      color: #0039e6;
+      text-decoration: none;
+      transition: 0.2s;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      color: #001f99;
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #777;
+      margin: 0 5px;
+    }
+
+    /* ===== FORM GALANG DANA ===== */
+    .form-container {
+      width: 90%;
+      max-width: 800px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #222;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .upload-box {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .img-preview {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      background: #e9e9e9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .img-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .upload-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .upload-info button {
+      background: #d9e3ff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #0019cc;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .upload-info button:hover {
+      background: #c7d6ff;
+    }
+
+    .upload-info small {
+      color: #666;
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    .btn-submit {
+      display: block;
+      background: #0039e6;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 30px auto 0;
+      transition: 0.3s;
+    }
+
+    .btn-submit:hover {
+      background: #001f99;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">
+      <img src="Logo Dana Peduli.jpg" alt="DanaPeduli Logo">
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Cari disini">
+    </div>
+    <div class="nav-links">
+      <a href="donasi.html">Donasi</a>
+      <a href="login.html">Masuk</a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Beranda</a>
+    <span>></span>
+    Galang Dana
+  </div>
+
+  <!-- FORM GALANG DANA -->
+  <section class="form-container">
+    <div class="form-group">
+      <label for="judul">Judul Galang Dana</label>
+      <input type="text" id="judul" placeholder="Judul...">
+    </div>
+
+    <div class="form-group">
+      <label for="deskripsi">Deskripsi</label>
+      <textarea id="deskripsi" placeholder="Deskripsi..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="target">Target Dana</label>
+      <input type="text" id="target" placeholder="RpXXX.XXX.XXX">
+    </div>
+
+    <div class="form-group">
+      <label>Gambar Galang Dana</label>
+      <div class="upload-box">
+        <div class="img-preview" id="preview">
+          <img id="preview-img" src="" alt="">
+        </div>
+        <div class="upload-info">
+          <input type="file" id="gambar" accept="image/*">
+          <button id="btnUpload">Unggah Gambar</button>
+          <small>Format: *.jpg, *.png, *.jpeg, *.tga<br>Maksimal ukuran per file: 50 MB</small>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-submit">Ajukan Kampanye</button>
+  </section>
+
+  <script>
+    const uploadBtn = document.getElementById('btnUpload');
+    const fileInput = document.getElementById('gambar');
+    const previewImg = document.getElementById('preview-img');
+    const previewBox = document.getElementById('preview');
+
+    uploadBtn.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          previewImg.src = e.target.result;
+          previewBox.style.background = "none";
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+
+</body>
+</html>

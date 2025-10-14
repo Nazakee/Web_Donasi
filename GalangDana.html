@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Galang Dana - DanaPeduli</title>
+
+    <!-- Import Font Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #222;
+        }
+
+        /* ===== NAVBAR (Diambil dari Contoh 2) ===== */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 40px;
+            border-bottom: 1px solid #ddd;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .search-bar {
+            flex: 1;
+            margin: 0 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            background: #eaf1ff; /* Warna lebih cerah */
+            outline: none;
+            font-size: 14px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #111;
+            font-weight: 500;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0039e6;
+        }
+
+        .btn-primary {
+            background: #020075; /* Warna biru primer */
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #0021a3;
+        }
+
+        /* ===== BREADCRUMB (Diambil dari Contoh 2) ===== */
+        .breadcrumb {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .breadcrumb a {
+            color: #0039e6;
+            text-decoration: none;
+            transition: 0.2s;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #777;
+            margin: 0 5px;
+        }
+
+        /* ===== DETAIL SECTION (Diambil dari Contoh 2) ===== */
+        .donasi-detail {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .donasi-img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px; /* Sedikit lebih lebar */
+            height: 380px; /* Sedikit lebih tinggi */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .donasi-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .donasi-info {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .donasi-info h1 {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .donasi-info p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        
+        /* Stats Box (Menggantikan .info-box) */
+        .donasi-stats {
+            background: #f0f4ff; /* Latar belakang lebih terang */
+            padding: 18px 25px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-weight: 500;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .donasi-stats b {
+            font-size: 20px;
+            color: #0039e6;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Status Label (Dari Contoh 1) */
+        .status {
+            background-color: #e9f9ec;
+            color: #1a7f37;
+            display: inline-block;
+            padding: 7px 15px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Donation List (Dari Contoh 1) */
+        .donation-list {
+            margin-top: 20px;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .donation-list h4 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #111;
+        }
+
+        .donation-item {
+            display: flex;
+            align-items: center;
+            background-color: #fcfcfc;
+            padding: 12px 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+        }
+
+        .donation-item img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            margin-right: 12px;
+            background: #ddd;
+        }
+
+        .donation-item p {
+            font-size: 14px;
+            color: #333;
+            margin: 0; /* Reset margin from general p style */
+        }
+        
+        .donation-item strong {
+            color: #0039e6;
+            font-weight: 600;
+        }
+
+        /* Tombol Donasi (Diambil dari Contoh 2) */
+        .donasi-btn {
+            display: block; /* Dibuat block agar mengisi lebar */
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+            padding: 15px 25px;
+            background: #ff4c1a; /* Warna Aksi: Orange/Merah */
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 30px;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 76, 26, 0.4);
+        }
+
+        .donasi-btn:hover {
+            background: #e63e15;
+            box-shadow: 0 4px 12px rgba(255, 76, 26, 0.6);
+        }
+
+
+        /* ===== RESPONSIVE (Diambil dari Contoh 2) ===== */
+        @media (max-width: 900px) {
+             .donasi-detail {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+                flex-wrap: wrap;
+            }
+            .search-bar {
+                order: 3;
+                width: 100%;
+                margin: 10px 0;
+            }
+            .nav-links {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .nav-links a {
+                margin-left: 10px;
+            }
+
+            .breadcrumb, .donasi-detail {
+                width: 95%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .donasi-detail {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .donasi-img {
+                width: 100%;
+                max-width: none;
+                height: 300px;
+            }
+
+            .donasi-info h1 {
+                font-size: 24px;
+            }
+
+            .donasi-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            /* Hapus .donasi-btn max-width agar responsif penuh */
+            /* .donasi-btn {
+                max-width: none;
+            } */
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">
+            <!-- Fallback placeholder untuk logo -->
+            <img src="Logo Dana Peduli.jpg" onerror="this.onerror=null; this.src='https://placehold.co/55x55/0039e6/ffffff?text=DP';" alt="DanaPeduli Logo">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Cari galang dana..." />
+        </div>
+        <div class="nav-links">
+            <a href="#">Donasi</a>
+            <a href="#">Masuk</a>
+            <a href="#" class="btn-primary">Galang Dana</a>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="#">Beranda</a>
+        <span>></span>
+        <a href="#">Galang Dana</a>
+        <span>></span>
+        Detail Galang Dana
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <section class="donasi-detail">
+        <!-- GAMBAR -->
+        <div class="donasi-img">
+            <!-- Fallback placeholder untuk gambar utama -->
+            <img src="donasi_rumah_sakit[1].jpg" 
+                 onerror="this.onerror=null; this.src='https://placehold.co/450x380/0039e6/ffffff?text=FOTO+DONASI';" 
+                 alt="Gambar Galang Dana">
+        </div>
+
+        <!-- KONTEN -->
+        <div class="donasi-info">
+            <h1>Donasi Untuk Bantuan Medis Peningkatan Fasilitas Rumah Sakit</h1>
+            <p>
+                Ribuan pasien bergantung pada layanan Rumah Sakit Umum Daerah (RSUD) di wilayah kita, namun keterbatasan fasilitas dan peralatan medis yang usang seringkali menghambat penanganan darurat dan pelayanan optimal. Donasi Anda sangat berharga untuk peningkatan kualitas layanan kesehatan. Dana yang terkumpul akan digunakan untuk membeli peralatan medis esensial serta perbaikan ruang rawat inap yang membutuhkan renovasi mendesak.
+            </p>
+
+            <!-- STATS BOX (Menggantikan info-box) -->
+            <div class="donasi-stats">
+                <div>Total Terkumpul:<br><b>Rp 25.000.000</b></div>
+                <div>Target Dana:<br><b>Rp 50.000.000</b></div>
+                <div>Sisa Hari:<br><b>10</b></div>
+            </div>
+            
+            <div class="status">Aktif</div>
+
+            <div class="donation-list">
+                 <h4>Laporan Dana Masuk Terbaru</h4>
+                 <div id="donationList">
+                    <!-- Donasi akan diisi oleh JavaScript -->
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const donationData = [
+            { nama: "Farhan A.", jumlah: "Rp500.000" },
+            { nama: "Aulia R.", jumlah: "Rp300.000" },
+            { nama: "Rizky N.", jumlah: "Rp1.000.000" },
+            { nama: "Hamba Allah", jumlah: "Rp100.000" },
+            { nama: "Siti M.", jumlah: "Rp1.500.000" }
+        ];
+
+        const donationList = document.getElementById("donationList");
+        const profileImageUrl = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+
+        donationData.forEach(d => {
+            const div = document.createElement("div");
+            div.classList.add("donation-item");
+            div.innerHTML = `
+                <img src="${profileImageUrl}" onerror="this.onerror=null; this.src='https://placehold.co/35x35/cccccc/333333?text=U';" alt="user" />
+                <p>${d.nama} Berdonasi Sebesar <strong>${d.jumlah}</strong></p>
+            `;
+            donationList.appendChild(div);
+        });
+        
+        // Efek fokus pada search bar
+        const searchInput = document.querySelector('.search-bar input');
+        if (searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.style.borderColor = '#0039e6';
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.style.borderColor = '#ccc';
+            });
+        }
+    </script>
+</body>
+</html>

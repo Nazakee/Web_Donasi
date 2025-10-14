@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Donasi - DanaPeduli</title>
+  <!-- Import Font Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #222;
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      background: #eaf1ff;
+      outline: none;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #1a4cff;
+    }
+
+    .btn-primary {
+      background: #020075;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #0019cc;
+    }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      width: 90%;
+      margin: 20px auto;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .breadcrumb a {
+      color: #0039e6;
+      text-decoration: none;
+      transition: 0.2s;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      color: #001f99;
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #777;
+      margin: 0 5px;
+    }
+
+    /* ===== DETAIL SECTION ===== */
+    .donasi-detail {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 90%;
+      margin: 30px auto;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .donasi-img {
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
+      height: 350px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .donasi-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .donasi-info {
+      flex: 1.5;
+      min-width: 300px;
+    }
+
+    .donasi-info h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .donasi-info p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .donasi-stats {
+      background: #f9f9f9;
+      padding: 15px 20px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .donasi-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #0039e6;
+      color: white;
+      font-weight: 600;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .donasi-btn:hover {
+      background: #0021a3;
+    }
+
+    /* ===== PROFIL PENGGALANG DANA ===== */
+    .fundraiser-profile {
+      width: 90%;
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #fcfcfc;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .profile-avatar img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #0039e6;
+    }
+
+    .profile-info h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #020075;
+    }
+
+    .profile-info p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .profile-info .btn-secondary {
+      display: inline-block;
+      font-size: 13px;
+      padding: 6px 15px;
+      background: #eaf1ff;
+      color: #0039e6;
+      border: 1px solid #0039e6;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .profile-info .btn-secondary:hover {
+      background: #d9e3ff;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 20px;
+        flex-wrap: wrap;
+      }
+      .search-bar {
+        order: 3;
+        width: 100%;
+        margin: 10px 0;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+      }
+
+      .donasi-detail {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .donasi-info h1 {
+        font-size: 22px;
+      }
+
+      .donasi-btn {
+        display: block;
+        text-align: center;
+      }
+
+      .fundraiser-profile {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">
+      <img src="Logo Dana Peduli.jpg" onerror="this.onerror=null; this.src='https://placehold.co/55x55/1a4cff/ffffff?text=DP';" alt="DanaPeduli Logo">
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Cari disini">
+    </div>
+    <div class="nav-links">
+      <a href="donasi.html">Donasi</a>
+      <a href="login.html">Masuk</a>
+      <a href="galang.html" class="btn-primary">Galang Dana</a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Beranda</a>
+    <span>></span>
+    <a href="donasi.html">Donasi</a>
+    <span>></span>
+    Detail Donasi
+  </div>
+
+  <!-- DETAIL DONASI -->
+  <section class="donasi-detail">
+    <!-- GAMBAR -->
+    <div class="donasi-img">
+      <img src="donasi_rumah_sakit[1].jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x350/ff4c1a/ffffff?text=BENCANA';" alt="Donasi Bencana Alam di Palu">
+    </div>
+
+    <!-- INFO -->
+    <div class="donasi-info">
+      <h1>Bantu Biaya Rumah Sakit</h1>
+      <p>
+        Ribuan pasien bergantung pada layanan Rumah Sakit Umum Daerah (RSUD) di wilayah kita, namun keterbatasan fasilitas dan peralatan medis yang usang seringkali menghambat penanganan darurat dan pelayanan optimal. Donasi Anda sangat berharga untuk peningkatan kualitas layanan kesehatan. Dana yang terkumpul akan digunakan untuk membeli peralatan medis esensial seperti ventilator, monitor pasien, serta perbaikan ruang rawat inap yang membutuhkan renovasi mendesak. Mari bersama-sama pastikan setiap warga mendapatkan akses pelayanan kesehatan terbaik dan layak. Setiap rupiah yang Anda donasikan adalah nafas baru bagi mereka yang membutuhkan.
+      </p>
+
+      <div class="donasi-stats">
+        <div>Total Terkumpul: <br><b>Rp 30.000.000</b></div>
+        <div>Sisa Hari: <br><b>12</b></div>
+      </div>
+
+      <a href="form-donasi.html" class="donasi-btn">Donasi Sekarang</a>
+    </div>
+  </section>
+
+  <!-- PROFIL PENGGALANG DANA (NEW SECTION) -->
+  <section class="fundraiser-profile">
+    <div class="profile-avatar">
+      <!-- Placeholder image ditambahkan dengan fallback -->
+      <img src="LOGOGALANGDANA.png" onerror="this.onerror=null; this.src='https://placehold.co/60x60/0039e6/ffffff?text=ORG';" alt="Avatar Penggalang Dana">
+    </div>
+    <div class="profile-info">
+      <h3>Organisasi Peduli Sesama</h3>
+      <p>Penggalang dana terpercaya sejak 2015. Telah membantu 50+ program kemanusiaan di seluruh Indonesia.</p>
+      <a href="#" class="btn-secondary">Lihat Profil Penggalang Dana</a>
+    </div>
+  </section>
+
+  <script>
+    const searchInput = document.querySelector('.search-bar input');
+    searchInput.addEventListener('focus', () => {
+      searchInput.style.borderColor = '#1a4cff';
+    });
+    searchInput.addEventListener('blur', () => {
+      searchInput.style.borderColor = '#ccc';
+    });
+  </script>
+
+</body>
+</html>
