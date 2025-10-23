@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Buat Kampanye Baru</title>
+    
+    <style>
+        /* Styling Umum */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        #buat-kampanye-form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #buat-kampanye-form h1 {
+            color: #4a5d7c; /* Biru Gelap sesuai dashboard */
+            border-bottom: 2px solid #e0e5ed;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        /* Styling Fieldset dan Legend */
+        .campaign-form fieldset {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            background-color: #fcfcfc;
+        }
+
+        .campaign-form legend {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4a5d7c;
+            padding: 0 10px;
+        }
+
+        /* Styling Form Group */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        /* Styling Input, Select, Textarea */
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="date"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box; 
+            margin-top: 3px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+        
+        /* Styling untuk input type file agar lebih rapi */
+        .form-group input[type="file"] {
+            border: none;
+            padding: 0;
+        }
+
+        .help-text {
+            font-size: 0.85em;
+            color: #777;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Styling Tombol Aksi */
+        .form-actions {
+            margin-top: 40px;
+            text-align: right;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 15px;
+            transition: opacity 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Biru */
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d; /* Abu-abu */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="buat-kampanye-form">
+        <h1>Buat Kampanye Penggalangan Dana Baru</h1>
+        
+        <form class="campaign-form" action="#" method="POST">
+            
+            <fieldset>
+                <legend>Informasi Dasar Kampanye</legend>
+                
+                <div class="form-group">
+                    <label for="judul">Judul Kampanye *</label>
+                    <input type="text" id="judul" name="judul" placeholder="Contoh: Bantu Pendidikan Anak Desa" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="kategori">Kategori *</label>
+                    <select id="kategori" name="kategori" required>
+                        <option value="">Pilih Kategori</option>
+                        <option value="pendidikan">Pendidikan</option>
+                        <option value="kesehatan">Kesehatan</option>
+                        <option value="sosial">Sosial & Kemanusiaan</option>
+                        <option value="lingkungan">Lingkungan</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Target & Durasi</legend>
+
+                <div class="form-group">
+                    <label for="target">Target Donasi (Rp) *</label>
+                    <input type="number" id="target" name="target" placeholder="Contoh: 15000000" min="100000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="batas_waktu">Batas Waktu</label>
+                    <input type="date" id="batas_waktu" name="batas_waktu" aria-describedby="info-batas-waktu">
+                    <small id="info-batas-waktu" class="help-text">Kosongkan jika ingin berjalan tanpa batas waktu (Berlangsung).</small>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Detail Kampanye</legend>
+
+                <div class="form-group">
+                    <label for="deskripsi">Deskripsi Lengkap *</label>
+                    <textarea id="deskripsi" name="deskripsi" rows="8" placeholder="Jelaskan secara rinci mengapa Anda menggalang dana, dan bagaimana dana akan digunakan." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="media">Unggah Foto Utama / Video</label>
+                    <input type="file" id="media" name="media" accept="image/*,video/*">
+                    <small class="help-text">Maksimal 5MB. Gunakan gambar/video yang menarik dan relevan.</small>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary">Simpan Sebagai Draft</button>
+                <button type="submit" class="btn btn-primary">Publikasikan Kampanye</button>
+            </div>
+            
+        </form>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Kampanye Saya</title>
+    
+    <style>
+        /* Variabel Warna Dasar (Sesuai Dashboard) */
+        :root {
+            --biru-gelap: #4a5d7c;
+            --biru-muda: #e0e5ed;
+            --abu-terang: #f4f6f8;
+            --progress-bar-color: #007bff; /* Biru untuk progress */
+            --hijau-success: #28a745;
+        }
+
+        /* Styling Umum */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--abu-terang);
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .campaign-list-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .campaign-list-container h1 {
+            color: var(--biru-gelap);
+            border-bottom: 2px solid var(--biru-muda);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+        
+        /* Card Styling */
+        .campaign-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .campaign-details {
+            flex-grow: 1;
+        }
+
+        .campaign-title {
+            font-size: 1.25em;
+            font-weight: bold;
+            color: var(--biru-gelap);
+            margin-bottom: 5px;
+        }
+
+        .campaign-stats {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .campaign-stats p {
+            margin: 5px 0;
+        }
+
+        .target-text {
+            color: #999;
+        }
+        
+        .target-achieved {
+            font-weight: bold;
+            color: var(--hijau-success);
+        }
+
+        /* Progress Bar Styling */
+        .progress-container {
+            width: 75%; /* Lebar progress bar */
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--progress-bar-color);
+            transition: width 0.4s ease;
+        }
+
+        /* Status & Aksi */
+        .campaign-status {
+            width: 150px;
+            text-align: right;
+            padding-left: 20px;
+            flex-shrink: 0;
+        }
+
+        .progress-percentage {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--progress-bar-color);
+            margin-bottom: 5px;
+        }
+
+        .manage-button {
+            display: inline-block;
+            padding: 8px 15px;
+            margin-top: 10px;
+            background-color: #f8f9fa; /* Latar belakang tombol Kelola */
+            color: var(--biru-gelap);
+            border: 1px solid var(--biru-gelap);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .manage-button:hover {
+            background-color: var(--biru-gelap);
+            color: white;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        .status-berjalan {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .status-selesai {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status-berakhir {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="campaign-list-container">
+        <h1>Daftar Kampanye Saya (3 Kampanye Berjalan)</h1>
+
+        <div class="campaign-card">
+            <div class="campaign-details">
+                <div class="campaign-title">Bantu Pendidikan Anak Desa A</div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 52%;"></div>
+                </div>
+
+                <div class="campaign-stats">
+                    <p>Terkumpul: <span class="target-achieved">Rp 7.800.000</span></p>
+                    <p class="target-text">Target: Rp 15.000.000 • Berakhir: 28 Nov 2025</p>
+                </div>
+                
+                <span class="status-badge status-berjalan">Berjalan</span>
+            </div>
+            <div class="campaign-status">
+                <div class="progress-percentage">52%</div>
+                <a href="#" class="manage-button">Kelola</a>
+            </div>
+        </div>
+
+        <div class="campaign-card">
+            <div class="campaign-details">
+                <div class="campaign-title">Ambulans Gratis untuk Puskesmas</div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 7%;"></div>
+                </div>
+
+                <div class="campaign-stats">
+                    <p>Terkumpul: <span class="target-achieved">Rp 3.500.000</span></p>
+                    <p class="target-text">Target: Rp 50.000.000 • Status: Berlangsung</p>
+                </div>
+                
+                <span class="status-badge status-berjalan">Berjalan</span>
+            </div>
+            <div class="campaign-status">
+                <div class="progress-percentage">7%</div>
+                <a href="#" class="manage-button">Kelola</a>
+            </div>
+        </div>
+
+        <div class="campaign-card">
+            <div class="campaign-details">
+                <div class="campaign-title">Renovasi Masjid RW 04</div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 41%;"></div>
+                </div>
+
+                <div class="campaign-stats">
+                    <p>Terkumpul: <span class="target-achieved">Rp 4.150.000</span></p>
+                    <p class="target-text">Target: Rp 10.000.000 • Status: Berlangsung</p>
+                </div>
+                
+                <span class="status-badge status-berjalan">Berjalan</span>
+            </div>
+            <div class="campaign-status">
+                <div class="progress-percentage">41%</div>
+                <a href="#" class="manage-button">Kelola</a>
+            </div>
+        </div>
+
+        <div class="campaign-card" style="opacity: 0.7;">
+            <div class="campaign-details">
+                <div class="campaign-title">Bantuan Banjir Bandang (SUDAH SELESAI)</div>

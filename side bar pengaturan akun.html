@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengaturan Akun</title>
+    
+    <style>
+        /* Variabel Warna Dasar */
+        :root {
+            --biru-gelap: #4a5d7c;
+            --biru-muda: #e0e5ed;
+            --abu-terang: #f4f6f8;
+            --hijau-success: #28a745;
+            --merah-gagal: #dc3545;
+        }
+
+        /* Styling Umum */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--abu-terang);
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .settings-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .settings-container h1 {
+            color: var(--biru-gelap);
+            border-bottom: 2px solid var(--biru-muda);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+        
+        /* Section Styling */
+        .settings-section {
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fcfcfc;
+        }
+        
+        .settings-section h2 {
+            color: #333;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--biru-muda);
+        }
+
+        /* Form Group Styling */
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* Button Styling */
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .form-actions {
+            text-align: right;
+            margin-top: 10px;
+        }
+        
+        /* Bank Info Styling */
+        .bank-info-current {
+            background-color: #e6f7ff;
+            border: 1px dashed #91d5ff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .bank-info-current p {
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="settings-container">
+        <h1>Pengaturan Akun</h1>
+
+        <div class="settings-section">
+            <h2>Informasi Profil</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" value="Nama Penggalang Dana" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="kanyang.fatu@example.com" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="telepon">Nomor Telepon</label>
+                    <input type="tel" id="telepon" name="telepon" value="081234567890">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Simpan Profil</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="settings-section">
+            <h2>Ubah Kata Sandi</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="password_lama">Kata Sandi Lama</label>
+                    <input type="password" id="password_lama" name="password_lama" required>
+                </div>
+                <div class="form-group">
+                    <label for="password_baru">Kata Sandi Baru</label>
+                    <input type="password" id="password_baru" name="password_baru" required>
+                </div>
+                <div class="form-group">
+                    <label for="konfirmasi_baru">Konfirmasi Kata Sandi Baru</label>
+                    <input type="password" id="konfirmasi_baru" name="konfirmasi_baru" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Ubah Kata Sandi</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="settings-section">
+            <h2>Rekening Pencairan Dana</h2>
+            
+            <div class="bank-info-current">
+                <p>Rekening Aktif Saat Ini:</p>
+                <p><strong>Bank:</strong> BCA</p>
+                <p><strong>No. Rekening:</strong> 1234567890</p>
+                <p><strong>Atas Nama:</strong> Nama Penggalang Dana</p>
+            </div>
+            
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="bank">Nama Bank</label>
+                    <select id="bank" name="bank">
+                        <option value="">Pilih Bank</option>
+                        <option value="bca">BCA</option>
+                        <option value="mandiri">Mandiri</option>
+                        <option value="bni">BNI</option>
+                        <option value="bri">BRI</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="no_rekening">Nomor Rekening Baru</label>
+                    <input type="text" id="no_rekening" name="no_rekening" placeholder="Masukkan Nomor Rekening">
+                </div>
+                <div class="form-group">
+                    <label for="atas_nama">Nama Pemilik Rekening</label>
+                    <input type="text" id="atas_nama" name="atas_nama" placeholder="Masukkan Nama Pemilik Rekening">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Update Rekening</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
