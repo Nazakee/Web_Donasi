@@ -165,7 +165,7 @@
       <div class="profile" aria-hidden="false">
         <div class="meta">
           <div class="name">Nama Penggalang Dana</div>
-          <div class="email" style="font-size:12px;color:var(--muted)">kanjeng.ratu@example.com</div>
+          <div class="email" style="font-size:12px;color:var(--muted)">urname@example.com</div>
         </div>
         <div class="avatar" aria-hidden="true">Profil</div>
       </div>
@@ -326,7 +326,7 @@
       </section>
     </main>
 
-    <button class="fab" id="fab">Buat Kampanye</button>
+    <a href="DaftarPenggalang.html" class="fab" id="fab">Buat Kampanye</a>
   </div>
 
 <script>
@@ -365,13 +365,6 @@
     // close sidebar with ESC
     document.addEventListener('keydown', function(e){
       if(e.key === 'Escape' && sidebar.classList.contains('open')) closeSidebar();
-    });
-
-    // demo: FAB action
-    fab.addEventListener('click', function(){
-      const title = prompt('Judul kampanye baru (contoh: Bantu XYZ):');
-      if(!title) return;
-      alert('Kampanye "' + title + '" berhasil dibuat (demo).');
     });
   })();
 </script>

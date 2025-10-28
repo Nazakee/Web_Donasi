@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persiapan Galang Dana - DanaPeduli</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6; /* Latar belakang abu-abu muda */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Mulai dari atas */
+            padding: 40px 20px;
+            margin: 0;
+        }
+
+        .persiapan-container {
+            background-color: white;
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #000080; /* Biru Tua */
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Kotak untuk setiap bagian */
+        .section-box {
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            background-color: #e9f0ff; /* Latar belakang biru sangat muda */
+        }
+
+        h2 {
+            color: #000080;
+            border-bottom: 2px solid #000080;
+            padding-bottom: 5px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        /* Gaya Daftar Persyaratan */
+        .requirement-list ul {
+            list-style: none; /* Hilangkan bullet default */
+            padding-left: 0;
+        }
+
+        .requirement-list li {
+            /* Menggunakan SVG sebagai bullet point kustom */
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%23000080"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>') no-repeat left center;
+            background-size: 18px;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        /* Gaya Alur Verifikasi */
+        .step-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .step {
+            flex: 1;
+            padding: 15px;
+            background-color: white;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        /* Gaya Tombol Aksi */
+        .call-to-action {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .call-to-action p {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .primary-button {
+            display: inline-block;
+            background-color: #000080; /* Biru Tua */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+
+        .primary-button:hover {
+            background-color: #000066;
+        }
+
+        .secondary-button {
+            background: none;
+            border: none;
+            color: #666;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: color 0.3s;
+            margin: 5px;
+        }
+
+        .secondary-button:hover {
+            color: #333;
+        }
+    </style>
+    </head>
+<body>
+
+    <div class="persiapan-container">
+        <h1>👋 Siap Memulai Kampanye Kebaikan Anda?</h1>
+        <p class="subtitle">Kami senang Anda bergabung. Sebelum memulai, mohon perhatikan beberapa hal penting berikut.</p>
+
+        <section class="section-box requirement-list">
+            <h2>✅ Persyaratan Umum</h2>
+            <ul>
+                <li>Anda harus memiliki KTP/Identitas yang valid.</li>
+                <li>Kampanye harus jelas tujuannya (Medis, Pendidikan, Lingkungan, dll.).</li>
+                <li>Anda harus siap menyediakan dokumen pendukung yang relevan (surat sakit, proposal, dll.).</li>
+                <li>Dana yang terkumpul akan dicairkan ke rekening bank atas nama penggalang dana.</li>
+            </ul>
+        </section>
+
+        <section class="section-box verification-flow">
+            <h2>⏳ Alur Verifikasi Kampanye</h2>
+            <div class="step-container">
+                <div class="step">1. Isi Formulir Pengajuan (halaman berikutnya)</div>
+                <div class="step">2. Tim Kami Meninjau (1x24 jam)</div>
+                <div class="step">3. Kampanye Aktif dan Siap Donasi</div>
+            </div>
+        </section>
+
+        <div class="call-to-action">
+            <p>Dengan menekan tombol di bawah, Anda menyatakan telah membaca dan menyetujui <a href="#">Syarat & Ketentuan</a> yang berlaku.</p>
+            
+            <a href="DaftarPenggalang.html" class="primary-button">
+                Lanjut
+            </a>
+            
+            <button class="secondary-button" onclick="history.back()">Batal & Kembali</button>
+        </div>
+    </div>
+
+</body>
+</html>
