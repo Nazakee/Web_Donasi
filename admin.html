@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Admin</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <header class="navbar">
+    <a href="beranda web donasi.html" class="home-link">
+      <img src="home.png" alt="Home" class="home-icon">
+    </a>
+    <a href="#" class="logout">Logout</a>
+  </header>
+
+  <main class="container">
+    <h2>Selamat Datang, Admin</h2>
+
+    <section class="section">
+      <h3>Verifikasi Kampanye Baru</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Judul Kampanye</th>
+            <th>Penggalang</th>
+            <th>Target Donasi</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bantuan Sekolah Desa</td>
+            <td>User123</td>
+            <td>Rp50.000.000</td>
+            <td>
+              <button class="btn btn-green" onclick="approveCampaign(this)">Setujui</button>
+              <button class="btn btn-red" onclick="rejectCampaign(this)">Tolak</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Donasi Banjir Bali</td>
+            <td>User037</td>
+            <td>Rp20.000.000</td>
+            <td>
+              <button class="btn btn-green" onclick="approveCampaign(this)">Setujui</button>
+              <button class="btn btn-red" onclick="rejectCampaign(this)">Tolak</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h3>Kelola Data User</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Nomor Telepon</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ahza</td>
+            <td>ahza@gmail.com</td>
+            <td>08xxxxxxxxxx</td>
+            <td>Aktif</td>
+            <td>
+              <button class="btn btn-yellow" onclick="suspendUser(this)">Suspend</button>
+              <button class="btn btn-red" onclick="deleteUser(this)">Hapus</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Lili</td>
+            <td>lili@gmail.com</td>
+            <td>08xxxxxxxxxx</td>
+            <td>Aktif</td>
+            <td>
+              <button class="btn btn-yellow" onclick="suspendUser(this)">Suspend</button>
+              <button class="btn btn-red" onclick="deleteUser(this)">Hapus</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h3>Laporan Transaksi Donasi</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID Transaksi</th>
+            <th>Donatur</th>
+            <th>Kampanye</th>
+            <th>Jumlah</th>
+            <th>Tanggal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DNS001</td>
+            <td>Budi</td>
+            <td>Bantuan Sekolah Desa</td>
+            <td>Rp100.000</td>
+            <td>20-09-2025</td>
+          </tr>
+          <tr>
+            <td>DNS002</td>
+            <td>Siti</td>
+            <td>Donasi Banjir Bali</td>
+            <td>Rp250.000</td>
+            <td>20-09-2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
