@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Pembayaran Donasi</title>
+  <link rel="stylesheet" href="pembayaran.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Logo">
+    </div>
+    <input type="text" class="search" placeholder="Cari disini">
+    <nav>
+      <a href="halaman donasi.html">Donasi</a>
+      <a href="#">Akun</a>
+    </nav>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="beranda web donasi.html">Beranda</a> › 
+    <a href="halaman donasi.html">Donasi</a> › 
+    <span>Pembayaran</span>
+  </div>
+
+  <div class="donasi-container">
+    <h3>Pilih Jumlah Donasi</h3>
+    <div class="amount-options">
+      <button type="button" class="amount-btn" data-amount="25000">Rp25.000</button>
+      <button type="button" class="amount-btn" data-amount="50000">Rp50.000</button>
+      <button type="button" class="amount-btn" data-amount="100000">Rp100.000</button>
+      <button type="button" class="amount-btn" data-amount="250000">Rp250.000</button>
+    </div>
+
+    <form id="donasiForm">
+      <label>Atau Masukkan Nominal Lain</label>
+      <input type="number" id="nominalLain" placeholder="Rp0" min="500" required>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Masukkan Nama</label>
+          <input type="text" placeholder="Nama" required>
+        </div>
+        <div class="form-group">
+          <label>Nomor Telepon</label>
+          <input type="text" placeholder="08xxxxxxxx" required>
+        </div>
+      </div>
+
+      <label>E-mail</label>
+      <input type="email" placeholder="example@gmail.com" required>
+
+      <h3>Pilih Metode Pembayaran</h3>
+      <div class="payment-method">
+        <button type="button">💳 E-Wallet</button>
+        <button type="button">🏦 Transfer Bank</button>
+      </div>
+
+      <button type="submit" class="btn-donasi" id="btnDonasi">Donasi Rp0</button>
+    </form>
+  </div>
+
+  <script src="pembayaran.js"></script>
+</body>
+</html>

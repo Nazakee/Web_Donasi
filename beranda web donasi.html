@@ -1,700 +1,277 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DanaPeduli</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-    }
-
-    /* Navbar */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 40px;
-      border-bottom: 1px solid #ddd;
-      background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    header .logo {
-      width: 50px;
-      height: 50px;
-      margin-right: 20px; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    header .logo img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    header .search-bar {
-      flex-grow: 1; 
-      margin: 0 20px; 
-      max-width: 600px;
-    }
-
-    header .search-bar input {
-      width: 100%;
-      padding: 10px 20px;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-      background: #eaf1ff; 
-      outline: none;
-      font-size: 16px;
-    }
-
-    header nav {
-      display: flex;
-      align-items: center;
-    }
-
-    header nav a {
-      margin-left: 20px;
-      color: #111;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 6px 12px; 
-      border-radius: 20px;
-      transition: color 0.2s, background 0.2s;
-    }
-
-    header nav a:hover {
-      color: #1a4cff;
-      background: #f0f0f0;
-    }
-
-    header nav a.galang-dana {
-      background: #020075; 
-      color: white;
-      font-weight: bold;
-      padding: 8px 18px; 
-      margin-left: 30px; 
-    }
-
-    header nav a.galang-dana:hover {
-      background: #0019cc; 
-      color: white;
-    }
-
-    header nav a.galang-dana {
-      background: #020075; 
-      color: white;
-      font-weight: bold;
-      padding: 8px 18px; 
-      border-radius: 20px;
-      margin-left: 20px;
-    }
-    header nav a.galang-dana:hover {
-      background: #0019cc; 
-      color: white; 
-    }
-
-    /* Banner */
-    .banner {
-      width: 90%;
-      height: 60vh;
-      max-height: 500px;
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 0 20px;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #fff;
-      background-color: #072b51;
-      position: relative;
-    }
-    .banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      animation: slideShow 12s infinite;
-    }
-    .banner img:nth-child(1) { animation-delay: 0s; }
-    .banner img:nth-child(2) { animation-delay: 4s; }
-    .banner img:nth-child(3) { animation-delay: 8s; }
-
-    @keyframes slideShow {
-      0% { opacity: 0; }
-      10% { opacity: 1; }
-      30% { opacity: 1; }
-      40% { opacity: 0; }
-      100% { opacity: 0; }
-    }
-
-    /* Section Style */
-    .section {
-      padding: 30px 20px;
-    }
-    .section h2 {
-      margin-bottom: 15px;
-      color: #072b51;
-    }
-
-    .pilihan-section {
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-
-    .pilihan-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .pilihan-header h2 {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .lihat-lainnya {
-      background-color: #0ea5e9;
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 9999px;
-      font-size: 14px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .lihat-lainnya:hover {
-      background-color: #0284c7;
-    }
-
-    .scroll-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      flex: 0 0 250px;
-      background: #fff;
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-right: 15px;
-      text-align: left;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    }
-
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .card h3 {
-      margin: 12px 0 8px;
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .terkumpul {
-      font-size: 14px;
-      color: #555;
-      display: block;
-      margin-top: 8px;
-    }
-
-    .progress-bar {
-      background: #e5e7eb;
-      border-radius: 10px;
-      height: 8px;
-      margin: 8px 0;
-      overflow: hidden;
-    }
-
-    .progress {
-      height: 8px;
-      background: #22c55e;
-    }
-
-    /* Horizontal scroll */
-    .scroll-container {
-      display: flex;
-      gap: 15px;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-    }
-    .card {
-      flex: 0 0 250px;
-      background: #fff;
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-right: 15px;
-      text-align: left;
-    }
-    .card img {
-      width: 100%;
-      height: 200px;   
-      object-fit: cover;  
-      border-radius: 10px;
-    }
-    .card:hover {
-      transform: translateY(-5px) scale(1.02);
-    }
-    .section-header {
-      display: flex;
-      justify-content: right;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-    .section-header h2 {
-      margin: 0;
-      font-size: 22px;
-      font-weight: bold;
-    }
-    .section-header .lihat-semua {
-      text-decoration: none;
-      color: #0d6efd;
-    }
-    .section-header .lihat-semua:hover {
-      color: #084298;
-    }
-    .campaign-card {
-      flex: 0 0 250px;
-      background: #fff;
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-right: 15px;
-      text-align: left;
-    }
-
-    .campaign-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .campaign-section {
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 10px;
-      background: #e9ecef;
-      border-radius: 6px;
-      overflow: hidden;
-      margin: 8px 0;
-    }
-    .progress {
-      height: 100%;
-      background: #0d6efd;
-    }
-    .donasi-btn {
-      text-align: center;
-      text-decoration: none;
-      display: block;
-      width: 110%;
-      margin-left: -5%;
-      margin-top: 10px;
-      padding: 12px 0px;
-      background: #0b0342;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .donasi-btn:hover {
-      background: #0b0342;
-    }
-    
-    .donasi-wrapper {
-      padding: 0 15px 15px; 
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 8px;
-      background-color: #e5e5e5;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background-color: #4CAF50; 
-      border-radius: 10px;
-    }
-
-    .progress-text {
-      position: absolute;
-      right: 8px;
-      top: -18px;
-      background-color: #4CAF50;
-      color: white;
-      padding: 2px 6px;
-      border-radius: 10px;
-      font-size: 12px;
-    }
-    
-
-    /* Footer */
-    .footer {
-      background-color: #002147;
-      color: #fff;
-      padding: 40px 20px 20px;
-      font-family: Arial, sans-serif;
-    }
-
-    .footer-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-section {
-      flex: 1;
-      min-width: 250px;
-      margin: 20px;
-    }
-
-    .footer-section h3 {
-      margin-bottom: 15px;
-      font-size: 18px;
-      border-bottom: 2px solid #fff;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    .footer-section p {
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .footer-section a {
-      color: #f9d342;
-      text-decoration: none;
-    }
-
-    .footer-section a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      margin-top: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding-top: 15px;
-      font-size: 14px;
-    }
-    
-    footer p {
-      margin: 5px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DanaPeduli</title>
+    <link rel="stylesheet" href="beranda css.css">
 </head>
+
 <body>
 
-  <!-- Navbar -->
-   <header class="navbar">
-    <div class="logo">
-      <img src="logo.jpeg" alt="DanaPeduli Logo">
-    </div>
-    <div class="search-bar">
-      <input type="text" placeholder="Cari disini">
-    </div>
-    <nav>
-      <a href="halaman donasi.html">Donasi</a>
-      <a href="login.html">Masuk</a>
-      <a href="landing page.html" class="galang-dana">Galang Dana</a>
-    </nav>
-  </header>
-
-  <!-- Banner -->
-  <div class="banner">
-    <img src="Banner Donasi Masjid.png" alt="Banner 1">
-    <img src="Banner Donasi Selamatkan Akidah.jpg" alt="Banner 2">
-    <img src="Banner Pelebaran Jalan.jpg" alt="Banner 3">
-  </div>
-
-  <!-- Campaign Mendesak -->
-  <section class="campaign-section">
-    <h2>Campaign Mendesak Minggu Ini</h2>
-    <div class="scroll-container">
-
-        <div class="campaign-card">
-          <img src="donasi rumah sakit.jpg" alt="Donasi Rumah Sakit">
-          <h3>Bantu Biaya Rumah Sakit</h3>
-          <p>Target: Rp50.000.000</p>
-
-          <div class="progress-wrapper" data-collected="30000000" data-target="50000000">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
-            </div>
-            <span class="progress-text"></span>
-          </div>
-
-          <p><strong>Terkumpul: Rp30.000.000</strong></p>
-          <div class="donasi-wrapper">
-            <a href="DetailDonasi.html" class="donasi-btn">Donasi</a>
-          </div>
+    <header class="navbar">
+        <div class="logo">
+            <img src="logo.jpeg" alt="DanaPeduli Logo">
         </div>
-
-      <div class="campaign-card">
-        <img src="dukung pendidikan anak.jpg" alt="Dukung Pendidikan Anak">
-        <h3>Dukung Pendidikan Anak</h3>
-        <p>Target: Rp30.000.000</p>
-
-          <div class="progress-wrapper" data-collected="12000000" data-target="30000000">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
-            </div>
-            <span class="progress-text"></span>
-          </div>
-
-        <p><strong>Terkumpul: Rp12.000.000</strong></p>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
+        <div class="search-bar">
+            <input type="text" placeholder="Cari disini">
         </div>
-      </div>
+        <nav>
+            <a href="halaman donasi.html">Donasi</a>
+            <a href="login.html">Masuk</a>
+            <a href="landing page.html" class="galang-dana">Galang Dana</a>
+        </nav>
+    </header>
 
-      <div class="campaign-card">
-        <img src="bencana alam.jpg" alt="Bencana Alam">
-        <h3>Bantuan Bencana Alam</h3>
-        <p>Target: Rp100.000.000</p>
-
-          <div class="progress-wrapper" data-collected="50000000" data-target="100000000">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
-            </div>
-            <span class="progress-text"></span>
-          </div>
-
-        <p><strong>Terkumpul: Rp50.000.000</strong></p>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-      </div>
-
-      <div class="campaign-card">
-        <img src="panti asuhan.jpg" alt="Panti Asuhan">
-        <h3>Panti Asuhan</h3>
-        <p>Target: Rp40.000.000</p>
-
-          <div class="progress-wrapper" data-collected="20000000" data-target="40000000">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
-            </div>
-            <span class="progress-text"></span>
-          </div>
-
-        <p><strong>Terkumpul: Rp20.000.000</strong></p>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-      </div>
-
-      <div class="campaign-card">
-        <img src="pasien covid.jpg" alt="Pasien Covid">
-        <h3>Bantu Pasien Covid</h3>
-        <p>Target: Rp70.000.000</p>
-
-          <div class="progress-wrapper" data-collected="30000000" data-target="70000000">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
-            </div>
-            <span class="progress-text"></span>
-          </div>
-
-        <p><strong>Terkumpul: Rp30.000.000</strong></p>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-      </div>
-
-      <div class="campaign-card">
-        <img src="relawan tanggap.jpg" alt="Relawan Tanggap">
-        <h3>Relawan Tanggap Darurat</h3>
-        <p>Target: Rp25.000.000</p>
-
-          <div class="progress-wrapper" data-collected="10000000" data-target="25000000">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
-            </div>
-            <span class="progress-text"></span>
-          </div>
-
-        <p><strong>Terkumpul: Rp10.000.000</strong></p>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pilihan DanaPeduli -->
-  <section class="pilihan-section">
-
-    <div class="pilihan-header">
-      <h2>Pilihan DanaPeduli</h2>
-      <a href="#" class="lihat-lainnya">Lihat lainnya</a>
+    <div class="banner">
+        <img src="Banner Donasi Masjid.png" alt="Banner 1">
+        <img src="Banner Donasi Selamatkan Akidah.jpg" alt="Banner 2">
+        <img src="Banner Pelebaran Jalan.jpg" alt="Banner 3">
     </div>
 
-    <div class="scroll-container">
+    <section class="campaign-section">
+        <h2>Campaign Mendesak Minggu Ini</h2>
+        <div class="scroll-container">
 
-      <div class="card">
-        <img src="satwa liar.jpg" alt="Selamatkan Satwa Liar">
-        <h3>Selamatkan Satwa Liar</h3>
+            <div class="campaign-card">
+                <img src="donasi rumah sakit.jpg" alt="Donasi Rumah Sakit">
+                <h3>Bantu Biaya Rumah Sakit</h3>
+                <p>Target: Rp50.000.000</p>
 
-        <div class="progress-wrapper" data-collected="150000000" data-target="500000000">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
+                <div class="progress-wrapper" data-collected="30000000" data-target="50000000">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text"></span>
+                </div>
+
+                <p><strong>Terkumpul: Rp30.000.000</strong></p>
+                <div class="donasi-wrapper">
+                    <a href="DetailDonasi.html" class="donasi-btn">Donasi</a>
+                </div>
             </div>
-            <span class="progress-text"></span>
-        </div>
 
-        <span class="terkumpul">Terkumpul: Rp150.000.000</span>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-      </div>
+            <div class="campaign-card">
+                <img src="dukung pendidikan anak.jpg" alt="Dukung Pendidikan Anak">
+                <h3>Dukung Pendidikan Anak</h3>
+                <p>Target: Rp30.000.000</p>
 
-      <div class="card">
-        <img src="hijaukan kota.jpeg" alt="Gerakan Hijaukan Kota">
-        <h3>Gerakan Hijaukan Kota</h3>
+                <div class="progress-wrapper" data-collected="12000000" data-target="30000000">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text"></span>
+                </div>
 
-        <div class="progress-wrapper" data-collected="320000000" data-target="500000000">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
+                <p><strong>Terkumpul: Rp12.000.000</strong></p>
+                <div class="donasi-wrapper">
+                    <button class="donasi-btn">Donasi</button>
+                </div>
             </div>
-            <span class="progress-text"></span>
-        </div>
-        
-        <span class="terkumpul">Terkumpul: Rp320.000.000</span>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-      </div>
 
-      <div class="card">
-        <img src="palestine.jpg" alt="Donasi Untuk Warga Palestine">
-        <h3>Donasi Untuk Warga Palestine</h3>
+            <div class="campaign-card">
+                <img src="bencana alam.jpg" alt="Bencana Alam">
+                <h3>Bantuan Bencana Alam</h3>
+                <p>Target: Rp100.000.000</p>
 
-        <div class="progress-wrapper" data-collected="120000000" data-target="500000000">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
+                <div class="progress-wrapper" data-collected="50000000" data-target="100000000">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text"></span>
+                </div>
+
+                <p><strong>Terkumpul: Rp50.000.000</strong></p>
+                <div class="donasi-wrapper">
+                    <button class="donasi-btn">Donasi</button>
+                </div>
             </div>
-            <span class="progress-text"></span>
-        </div>
-        
-        <span class="terkumpul">Terkumpul: Rp120.000.000</span>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-      </div>
 
-      <div class="card">
-        <img src="donasi bencana alam.jpg" alt="Bencana Alam">
-        <h3>Bantu Bencana Alam</h3>
+            <div class="campaign-card">
+                <img src="panti asuhan.jpg" alt="Panti Asuhan">
+                <h3>Panti Asuhan</h3>
+                <p>Target: Rp40.000.000</p>
 
-        <div class="progress-wrapper" data-collected="220000000" data-target="500000000">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
+                <div class="progress-wrapper" data-collected="20000000" data-target="40000000">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text"></span>
+                </div>
+
+                <p><strong>Terkumpul: Rp20.000.000</strong></p>
+                <div class="donasi-wrapper">
+                    <button class="donasi-btn">Donasi</button>
+                </div>
             </div>
-            <span class="progress-text"></span>
+
+            <div class="campaign-card">
+                <img src="pasien covid.jpg" alt="Pasien Covid">
+                <h3>Bantu Pasien Covid</h3>
+                <p>Target: Rp70.000.000</p>
+
+                <div class="progress-wrapper" data-collected="30000000" data-target="70000000">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text"></span>
+                </div>
+
+                <p><strong>Terkumpul: Rp30.000.000</strong></p>
+                <div class="donasi-wrapper">
+                    <button class="donasi-btn">Donasi</button>
+                </div>
+            </div>
+
+            <div class="campaign-card">
+                <img src="relawan tanggap.jpg" alt="Relawan Tanggap">
+                <h3>Relawan Tanggap Darurat</h3>
+                <p>Target: Rp25.000.000</p>
+
+                <div class="progress-wrapper" data-collected="10000000" data-target="25000000">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text"></span>
+                </div>
+
+                <p><strong>Terkumpul: Rp10.000.000</strong></p>
+                <div class="donasi-wrapper">
+                    <button class="donasi-btn">Donasi</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pilihan-section">
+
+        <div class="pilihan-header">
+            <h2>Pilihan DanaPeduli</h2>
+            <a href="#" class="lihat-lainnya">Lihat lainnya</a>
         </div>
 
-        <span class="terkumpul">Terkumpul: Rp220.000.000</span>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
+        <div class="scroll-container">
+
+            <div class="card">
+                <img src="satwa liar.jpg" alt="Selamatkan Satwa Liar">
+                <h3>Selamatkan Satwa Liar</h3>
+
+                <div class="progress-wrapper" data-collected="150000000" data-target="500000000">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text"></span>
+                </div>
+
+                <span class="terkumpul">Terkumpul: Rp150.000.000</span>
+                <div class="donasi-wrapper">
+                    <button class="donasi-btn">Donasi</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="hijaukan kota.jpeg" alt="Gerakan Hijaukan Kota">
+                <h3>Gerakan Hijaukan Kota</h3>
+
+                <div class="progress-wrapper" data-collected="320000000" data-target="500000000">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text"></span>
+                </div>
+
+                <span class="terkumpul">Terkumpul: Rp320.000.000</span>
+                <div class="donasi-wrapper">
+                    <button class="donasi-btn">Donasi</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="palestine.jpg" alt="Donasi Untuk Warga Palestine">
+                <h3>Donasi Untuk Warga Palestine</h3>
+
+                <div class="progress-wrapper" data-collected="120000000" data-target="500000000">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text"></span>
+                </div>
+
+                <span class="terkumpul">Terkumpul: Rp120.000.000</span>
+                <div class="donasi-wrapper">
+                    <button class="donasi-btn">Donasi</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="donasi bencana alam.jpg" alt="Bencana Alam">
+                <h3>Bantu Bencana Alam</h3>
+
+                <div class="progress-wrapper" data-collected="220000000" data-target="500000000">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text"></span>
+                </div>
+
+                <span class="terkumpul">Terkumpul: Rp220.000.000</span>
+                <div class="donasi-wrapper">
+                    <button class="donasi-btn">Donasi</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-  <div class="footer-container">
-    <!-- Tentang -->
-    <div class="footer-section">
-      <h3>Tentang DanaPeduli</h3>
-      <p>
-        DanaPeduli adalah platform donasi online yang memudahkan masyarakat 
-        untuk berdonasi secara cepat, aman, dan transparan. Kami hadir untuk 
-        menjembatani kebaikan hati Anda dengan berbagai program sosial, 
-        kemanusiaan, pendidikan, kesehatan, hingga bantuan bencana.
-      </p>
-      <p>
-        Setiap donasi yang Anda salurkan akan diteruskan secara tepat sasaran 
-        dan dilaporkan secara transparan. Bersama DanaPeduli, mari kita wujudkan 
-        kepedulian dan perubahan positif bagi sesama.
-      </p>
-    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Tentang DanaPeduli</h3>
+                <p>
+                    DanaPeduli adalah platform donasi online yang memudahkan masyarakat
+                    untuk berdonasi secara cepat, aman, dan transparan. Kami hadir untuk
+                    menjembatani kebaikan hati Anda dengan berbagai program sosial,
+                    kemanusiaan, pendidikan, kesehatan, hingga bantuan bencana.
+                </p>
+                <p>
+                    Setiap donasi yang Anda salurkan akan diteruskan secara tepat sasaran
+                    dan dilaporkan secara transparan. Bersama DanaPeduli, mari kita wujudkan
+                    kepedulian dan perubahan positif bagi sesama.
+                </p>
+            </div>
 
-    <!-- Kontak -->
-    <div class="footer-section">
-      <h3>Kontak</h3>
-      <p>📍 Jl. Peduli Sesama No. 10, Jakarta, Indonesia</p>
-      <p>📧 support@danapeduli.org</p>
-      <p>📞 +62 812-3456-7890</p>
-    </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p>📍 Jl. Peduli Sesama No. 10, Jakarta, Indonesia</p>
+                <p>📧 support@danapeduli.org</p>
+                <p>📞 +62 812-3456-7890</p>
+            </div>
 
-    <!-- Sosial Media -->
-    <div class="footer-section">
-      <h3>Ikuti Kami</h3>
-      <p><a href="#">Facebook</a></p>
-      <p><a href="#">Instagram</a></p>
-      <p><a href="#">Twitter</a></p>
-    </div>
-  </div>
+            <div class="footer-section">
+                <h3>Ikuti Kami</h3>
+                <p><a href="#">Facebook</a></p>
+                <p><a href="#">Instagram</a></p>
+                <p><a href="#">Twitter</a></p>
+            </div>
+        </div>
 
-  <div class="footer-bottom">
-    <p>© 2025 DanaPeduli. Semua Hak Dilindungi.</p>
-  </div>
-  </footer>
+        <div class="footer-bottom">
+            <p>© 2025 DanaPeduli. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
 
-  <script>
-    document.querySelectorAll('.progress-wrapper').forEach(wrapper => {
-     let collected = parseInt(wrapper.getAttribute('data-collected'));
-     let target = parseInt(wrapper.getAttribute('data-target'));
-     let percent = Math.round((collected / target) * 100);
+    <script>
+        document.querySelectorAll('.progress-wrapper').forEach(wrapper => {
+            let collected = parseInt(wrapper.getAttribute('data-collected'));
+            let target = parseInt(wrapper.getAttribute('data-target'));
+            let percent = Math.round((collected / target) * 100);
 
-     wrapper.querySelector('.progress-fill').style.width = percent + '%';
-     wrapper.querySelector('.progress-text').innerText = percent + '%';
-    });
-  </script>
+            wrapper.querySelector('.progress-fill').style.width = percent + '%';
+            wrapper.querySelector('.progress-text').innerText = percent + '%';
+        });
+    </script>
 
 </body>
+
 </html>

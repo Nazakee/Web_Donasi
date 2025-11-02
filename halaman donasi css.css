@@ -1,0 +1,194 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+}
+
+/* Navbar */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+header .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+header .search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    max-width: 600px;
+}
+
+header .search-bar input {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background: #eaf1ff;
+    outline: none;
+    font-size: 16px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    margin-left: 20px;
+    color: #111;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: color 0.2s, background 0.2s;
+}
+
+header nav a:hover {
+    color: #1a4cff;
+    background: #f0f0f0;
+}
+
+header nav a.galang-dana {
+    background: #020075;
+    color: white;
+    font-weight: bold;
+    padding: 8px 18px;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+
+header nav a.galang-dana:hover {
+    background: #0019cc;
+    color: white;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    max-width: 1200px;
+    margin: 20px auto 30px;
+    padding: 0 40px;
+    font-size: 14px;
+}
+
+.breadcrumb-link {
+    text-decoration: none;
+    color: #0b0342;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.breadcrumb-link:hover {
+    color: #1a4cff;
+    text-decoration: underline;
+}
+
+.separator {
+    margin: 0 5px;
+    color: #ccc;
+    user-select: none;
+}
+
+
+/* Grid Donasi */
+.donasi-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.donasi-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.donasi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.donasi-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.donasi-content {
+    padding: 15px 0;
+}
+
+.donasi-content h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #222;
+}
+
+.donasi-content p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.progress-bar {
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 8px;
+    margin-top: 10px;
+}
+
+.progress {
+    background: #072b51;
+    height: 8px;
+}
+
+.donasi-wrapper {
+    padding-top: 10px;
+}
+
+.donasi-btn {
+    background-color: #000435;
+    color: white;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    display: block;
+    text-decoration: none; /* Make sure it looks like a button even if an anchor tag is used */
+}
+
+.donasi-btn:hover {
+    background-color: #00114d;
+}

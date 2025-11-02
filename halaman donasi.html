@@ -1,386 +1,189 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Halaman Donasi</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-    }
-
-    /* Navbar */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 40px;
-      border-bottom: 1px solid #ddd;
-      background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    header .logo {
-      width: 50px;
-      height: 50px;
-      margin-right: 20px; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    header .logo img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    header .search-bar {
-      flex-grow: 1; 
-      margin: 0 20px; 
-      max-width: 600px;
-    }
-
-    header .search-bar input {
-      width: 100%;
-      padding: 10px 20px;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-      background: #eaf1ff; 
-      outline: none;
-      font-size: 16px;
-    }
-
-    header nav {
-      display: flex;
-      align-items: center;
-    }
-
-    header nav a {
-      margin-left: 20px;
-      color: #111;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 6px 12px; 
-      border-radius: 20px;
-      transition: color 0.2s, background 0.2s;
-    }
-
-    header nav a:hover {
-      color: #1a4cff;
-      background: #f0f0f0;
-    }
-
-    header nav a.galang-dana {
-      background: #020075; 
-      color: white;
-      font-weight: bold;
-      padding: 8px 18px; 
-      margin-left: 30px; 
-    }
-
-    header nav a.galang-dana:hover {
-      background: #0019cc; 
-      color: white;
-    }
-
-    header nav a.galang-dana {
-      background: #020075; 
-      color: white;
-      font-weight: bold;
-      padding: 8px 18px; 
-      border-radius: 20px;
-      margin-left: 20px;
-    }
-    header nav a.galang-dana:hover {
-      background: #0019cc; 
-      color: white; 
-    }
-
-    /* Breadcrumb */
-    .breadcrumb-link {
-      text-decoration: none; 
-      color: #0b0342; 
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .breadcrumb-link:hover {
-      color: #1a4cff; 
-      text-decoration: underline; 
-    }
-
-    .separator {
-      margin: 0 5px; 
-      color: #ccc;
-      user-select: none; 
-    }
-
-
-    .breadcrumb { 
-      max-width: 1200px;
-      margin: 20px auto 30px; 
-      padding: 0 40px; 
-      font-size: 14px;
-    }
-
-    /* Grid Donasi */
-    .donasi-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .donasi-card {
-      flex: 0 0 250px;
-      background: #fff;
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-right: 15px;
-      text-align: left;
-    }
-    .donasi-card:hover {
-      transform: translateY(-5px);
-    }
-    .donasi-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-    .donasi-content {
-      padding: 15px;
-    }
-    .donasi-content h3 {
-      margin: 0;
-      font-size: 18px;
-      color: #222;
-    }
-    .donasi-content p {
-      margin: 8px 0;
-      font-size: 14px;
-      color: #666;
-    }
-    .progress-bar {
-      background: #ddd;
-      border-radius: 10px;
-      overflow: hidden;
-      height: 8px;
-      margin-top: 10px;
-    }
-    .progress {
-      background: #072b51;
-      height: 8px;
-      width: 60%; 
-    }
-    .donasi-btn {
-      background-color: #000435;
-      color: white;
-      padding: 10px 0;
-      width: 100%;
-      text-align: center;
-      border: none;
-      border-radius: 5px;
-      font-size: 14px;
-      cursor: pointer;
-      display: block; 
-    }
-
-    .donasi-btn:hover {
-      background-color: #00114d;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Donasi</title>
+    <link rel="stylesheet" href="halaman donasi css.css">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">
-      <img src="logo.jpeg" alt="DanaPeduli Logo">
-    </div>
-    <div class="search-bar">
-      <input type="text" placeholder="Cari disini">
-    </div>
-    <nav>
-      <a href="donasi.html">Donasi</a>
-      <a href="login.html">Masuk</a>
-      <a href="#" class="galang-dana">Galang Dana</a>
-    </nav>
-  </header>
-
-  <!-- Breadcrumb -->
-  <div class="breadcrumb">
-    <a href="beranda web donasi.html" class="breadcrumb-link">Beranda</a>
-    <span class="separator"> > </span>
-    <a href="halaman donasi.html" class="breadcrumb-link">Donasi</a>
-    <span class="separator"> </span>
-  </div>
-
-  <!-- List Donasi -->
-  <div class="donasi-list">
-    <div class="donasi-card">
-      <img src="dukung pendidikan anak.jpg" alt="Donasi 1">
-      <div class="donasi-content">
-        <h3>Bantu Pendidikan Anak</h3>
-        <p>Terkumpul Rp 5.000.000 dari Rp 10.000.000</p>
-        <div class="progress-bar">
-          <div class="progress" style="width:50%"></div>
+    <header class="navbar">
+        <div class="logo">
+            <img src="logo.jpeg" alt="DanaPeduli Logo">
         </div>
-      </div>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
+        <div class="search-bar">
+            <input type="text" placeholder="Cari disini">
         </div>
+        <nav>
+            <a href="halaman donasi.html">Donasi</a>
+            <a href="login.html">Masuk</a>
+            <a href="landing page.html" class="galang-dana">Galang Dana</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="beranda web donasi.html" class="breadcrumb-link">Beranda</a>
+        <span class="separator"> > </span>
+        <a href="halaman donasi.html" class="breadcrumb-link">Donasi</a>
+        <span class="separator"> </span>
     </div>
 
-    <div class="donasi-card">
-      <img src="korban banjir.jpg" alt="Donasi 2">
-      <div class="donasi-content">
-        <h3>Bantu Korban Banjir</h3>
-        <p>Terkumpul Rp 15.000.000 dari Rp 30.000.000</p>
-        <div class="progress-bar">
-          <div class="progress" style="width:50%"></div>
+    <div class="donasi-list">
+        <div class="donasi-card">
+            <img src="dukung pendidikan anak.jpg" alt="Donasi 1">
+            <div class="donasi-content">
+                <h3>Bantu Pendidikan Anak</h3>
+                <p>Terkumpul Rp 5.000.000 dari Rp 10.000.000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width:50%"></div>
+                </div>
+            </div>
+            <div class="donasi-wrapper">
+                <button class="donasi-btn">Donasi</button>
+            </div>
         </div>
-      </div>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-    </div>
 
-    <div class="donasi-card">
-      <img src="renovasi musholla.jpg" alt="Donasi 4">
-      <div class="donasi-content">
-        <h3>Bantu Renovasi Musholla</h3>
-        <p>Terkumpul Rp 8.000.000 dari Rp 20.000.000</p>
-        <div class="progress-bar">
-          <div class="progress" style="width:40%"></div>
+        <div class="donasi-card">
+            <img src="korban banjir.jpg" alt="Donasi 2">
+            <div class="donasi-content">
+                <h3>Bantu Korban Banjir</h3>
+                <p>Terkumpul Rp 15.000.000 dari Rp 30.000.000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width:50%"></div>
+                </div>
+            </div>
+            <div class="donasi-wrapper">
+                <button class="donasi-btn">Donasi</button>
+            </div>
         </div>
-      </div>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-    </div>
 
-    <div class="donasi-card">
-      <img src="operasi jantung bayi.jpg" alt="Donasi 5">
-      <div class="donasi-content">
-        <h3>Bantu Operasi Jantung Bayi</h3>
-        <p>Terkumpul Rp 12.000.000 dari Rp 40.000.000</p>
-        <div class="progress-bar">
-          <div class="progress" style="width:30%"></div>
+        <div class="donasi-card">
+            <img src="renovasi musholla.jpg" alt="Donasi 4">
+            <div class="donasi-content">
+                <h3>Bantu Renovasi Musholla</h3>
+                <p>Terkumpul Rp 8.000.000 dari Rp 20.000.000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width:40%"></div>
+                </div>
+            </div>
+            <div class="donasi-wrapper">
+                <button class="donasi-btn">Donasi</button>
+            </div>
         </div>
-      </div>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-    </div>
 
-    <div class="donasi-card">
-      <img src="dampak kekeringan.jpg" alt="Donasi 6">
-      <div class="donasi-content">
-        <h3>Bantu Warga Terdampak Kekeringan</h3>
-        <p>Terkumpul Rp 6.000.000 dari Rp 25.000.000</p>
-        <div class="progress-bar">
-          <div class="progress" style="width:25%"></div>
+        <div class="donasi-card">
+            <img src="operasi jantung bayi.jpg" alt="Donasi 5">
+            <div class="donasi-content">
+                <h3>Bantu Operasi Jantung Bayi</h3>
+                <p>Terkumpul Rp 12.000.000 dari Rp 40.000.000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width:30%"></div>
+                </div>
+            </div>
+            <div class="donasi-wrapper">
+                <button class="donasi-btn">Donasi</button>
+            </div>
         </div>
-      </div>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-    </div>
 
-    <div class="donasi-card">
-      <img src="pembangunan sekolah.jpg" alt="Donasi 7">
-      <div class="donasi-content">
-        <h3>Donasi Pembangunan Sekolah</h3>
-        <p>Terkumpul Rp 18.000.000 dari Rp 60.000.000</p>
-        <div class="progress-bar">
-          <div class="progress" style="width:30%"></div>
+        <div class="donasi-card">
+            <img src="dampak kekeringan.jpg" alt="Donasi 6">
+            <div class="donasi-content">
+                <h3>Bantu Warga Terdampak Kekeringan</h3>
+                <p>Terkumpul Rp 6.000.000 dari Rp 25.000.000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width:25%"></div>
+                </div>
+            </div>
+            <div class="donasi-wrapper">
+                <button class="donasi-btn">Donasi</button>
+            </div>
         </div>
-      </div>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-    </div>
 
-    <div class="donasi-card">
-      <img src="panti asuhan.jpg" alt="Donasi 8">
-      <div class="donasi-content">
-        <h3>Bantu Panti Asuhan</h3>
-        <p>Terkumpul Rp 10.000.000 dari Rp 30.000.000</p>
-        <div class="progress-bar">
-          <div class="progress" style="width:33%"></div>
+        <div class="donasi-card">
+            <img src="pembangunan sekolah.jpg" alt="Donasi 7">
+            <div class="donasi-content">
+                <h3>Donasi Pembangunan Sekolah</h3>
+                <p>Terkumpul Rp 18.000.000 dari Rp 60.000.000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width:30%"></div>
+                </div>
+            </div>
+            <div class="donasi-wrapper">
+                <button class="donasi-btn">Donasi</button>
+            </div>
         </div>
-      </div>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-    </div>
 
-    <div class="donasi-card">
-      <img src="korban kebakaran.jpeg" alt="Donasi 9">
-      <div class="donasi-content">
-        <h3>Bantu Korban Kebakaran</h3>
-        <p>Terkumpul Rp 22.000.000 dari Rp 50.000.000</p>
-        <div class="progress-bar">
-          <div class="progress" style="width:44%"></div>
+        <div class="donasi-card">
+            <img src="panti asuhan.jpg" alt="Donasi 8">
+            <div class="donasi-content">
+                <h3>Bantu Panti Asuhan</h3>
+                <p>Terkumpul Rp 10.000.000 dari Rp 30.000.000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width:33%"></div>
+                </div>
+            </div>
+            <div class="donasi-wrapper">
+                <button class="donasi-btn">Donasi</button>
+            </div>
         </div>
-      </div>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-    </div>
 
-    <div class="donasi-card">
-      <img src="umkm bangkit.jpg" alt="Donasi 10">
-      <div class="donasi-content">
-        <h3>Bantu UMKM Bangkit</h3>
-        <p>Terkumpul Rp 7.000.000 dari Rp 20.000.000</p>
-        <div class="progress-bar">
-          <div class="progress" style="width:35%"></div>
+        <div class="donasi-card">
+            <img src="korban kebakaran.jpeg" alt="Donasi 9">
+            <div class="donasi-content">
+                <h3>Bantu Korban Kebakaran</h3>
+                <p>Terkumpul Rp 22.000.000 dari Rp 50.000.000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width:44%"></div>
+                </div>
+            </div>
+            <div class="donasi-wrapper">
+                <button class="donasi-btn">Donasi</button>
+            </div>
         </div>
-      </div>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-    </div>
 
-    <div class="donasi-card">
-      <img src="difabel berkarya.jpeg" alt="Donasi 11">
-      <div class="donasi-content">
-        <h3>Bantu Difabel Berkarya</h3>
-        <p>Terkumpul Rp 9.000.000 dari Rp 25.000.000</p>
-        <div class="progress-bar">
-          <div class="progress" style="width:36%"></div>
+        <div class="donasi-card">
+            <img src="umkm bangkit.jpg" alt="Donasi 10">
+            <div class="donasi-content">
+                <h3>Bantu UMKM Bangkit</h3>
+                <p>Terkumpul Rp 7.000.000 dari Rp 20.000.000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width:35%"></div>
+                </div>
+            </div>
+            <div class="donasi-wrapper">
+                <button class="donasi-btn">Donasi</button>
+            </div>
         </div>
-      </div>
-        <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
-        </div>
-    </div>
 
-    <div class="donasi-card">
-      <img src="air bersih.jpg" alt="Donasi 12">
-      <div class="donasi-content">
-        <h3>Bantu Pengadaan Air Bersih</h3>
-        <p>Terkumpul Rp 11.000.000 dari Rp 35.000.000</p>
-        <div class="progress-bar">
-          <div class="progress" style="width:31%"></div>
+        <div class="donasi-card">
+            <img src="difabel berkarya.jpeg" alt="Donasi 11">
+            <div class="donasi-content">
+                <h3>Bantu Difabel Berkarya</h3>
+                <p>Terkumpul Rp 9.000.000 dari Rp 25.000.000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width:36%"></div>
+                </div>
+            </div>
+            <div class="donasi-wrapper">
+                <button class="donasi-btn">Donasi</button>
+            </div>
         </div>
-      </div>
-      <div class="donasi-wrapper">
-          <button class="donasi-btn">Donasi</button>
+
+        <div class="donasi-card">
+            <img src="air bersih.jpg" alt="Donasi 12">
+            <div class="donasi-content">
+                <h3>Bantu Pengadaan Air Bersih</h3>
+                <p>Terkumpul Rp 11.000.000 dari Rp 35.000.000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width:31%"></div>
+                </div>
+            </div>
+            <div class="donasi-wrapper">
+                <button class="donasi-btn">Donasi</button>
+            </div>
         </div>
     </div>
-  </div>
 
 </body>
 </html>
