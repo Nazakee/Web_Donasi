@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun DanaPeduli</title>
+    <link rel="stylesheet" href="register css.css"> 
+</head>
+<body>
+
+    <div class="register-container">
+        <div class="register-box">
+            
+            <div class="logo">
+                <img src="logo.jpeg" alt="Logo DanaPeduli"> 
+            </div>
+
+            <h2>Daftar Akun Baru</h2>
+            
+            <form action="/register" method="POST">
+                
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap">
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Masukkan alamat email">
+                
+                <label for="password">Kata Sandi</label>
+                <input type="password" id="password" name="password" required placeholder="Minimal 8 karakter">
+
+                <label for="confirm_password">Konfirmasi Kata Sandi</label>
+                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Ulangi Kata Sandi">
+
+                <button type="submit" class="btn-register">DAFTAR SEKARANG</button>
+
+            </form>
+
+            <div class="divider">
+                <span></span> ATAU <span></span>
+            </div>
+
+            <div class="social-login">
+                <button class="btn-facebook">Daftar dengan Facebook</button>
+                <button class="btn-google">Daftar dengan Google</button>
+            </div>
+
+            <div class="login-link">
+                Sudah punya akun? <a href="login.html">Masuk di sini</a>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>

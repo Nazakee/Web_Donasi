@@ -1,0 +1,171 @@
+/* persiapan_galang_dana_v2.css */
+
+/* --- GENERAL STYLES & LAYOUT --- */
+body {
+    font-family: 'Poppins', sans-serif; /* Font yang lebih modern (asumsi tersedia atau diimpor) */
+    background: linear-gradient(135deg, #f0f4ff, #e0e9ff); /* Gradien latar belakang lembut */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 20px;
+    margin: 0;
+}
+
+.persiapan-container {
+    background-color: #ffffff;
+    max-width: 750px;
+    width: 100%;
+    padding: 50px;
+    border-radius: 20px; /* Sudut lebih membulat */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15); /* Bayangan yang lebih dramatis */
+    transition: transform 0.4s ease-in-out;
+}
+
+.persiapan-container:hover {
+    transform: translateY(-5px);
+}
+
+/* --- HEADINGS --- */
+h1 {
+    color: #0d1a44; /* Biru gelap premium */
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 32px;
+    font-weight: 800; /* Lebih tebal */
+}
+
+.subtitle {
+    text-align: center;
+    color: #667085;
+    margin-bottom: 50px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* --- SECTION BOXES --- */
+.section-box {
+    padding: 30px;
+    margin-bottom: 35px;
+    border-radius: 15px;
+    background-color: #fcfdff; 
+    border-left: 5px solid #0056b3; /* Garis vertikal menonjol di kiri */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: #0056b3; /* Biru utama yang cerah */
+    border-bottom: none; 
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* --- REQUIREMENT LIST --- */
+.requirement-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.requirement-list li {
+    /* Menggunakan ikon yang lebih modern dan berwarna */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%2328a745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') no-repeat left center;
+    background-size: 20px;
+    padding-left: 35px;
+    margin-bottom: 15px;
+    line-height: 1.8;
+    color: #333;
+    font-size: 16px;
+}
+
+/* --- VERIFICATION FLOW --- */
+.step-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; 
+    text-align: center;
+}
+
+.step {
+    flex: 1;
+    padding: 20px 15px;
+    background-color: #ffffff;
+    border: 1px solid #c2d6ff;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #0d1a44;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* --- ACTION BUTTONS --- */
+.call-to-action {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #e0e9ff;
+}
+
+.call-to-action p {
+    margin-bottom: 30px;
+    font-size: 15px;
+    color: #667085;
+}
+
+.call-to-action a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.call-to-action a:hover {
+    text-decoration: underline;
+    color: #003d7a;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.primary-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    /* Gradien tombol utama */
+    background: linear-gradient(90deg, #0056b3, #007bff);
+    color: white;
+    padding: 18px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    margin-right: 20px;
+    box-shadow: 0 10px 20px rgba(0, 86, 179, 0.4);
+    letter-spacing: 0.5px;
+}
+
+.primary-button:hover {
+    background: linear-gradient(90deg, #004d99, #0066cc);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0, 86, 179, 0.6);
+}
+
+.secondary-button {
+    background: none;
+    border: none;
+    color: #667085;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.secondary-button:hover {
+    color: #0056b3;
+}
